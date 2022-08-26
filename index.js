@@ -32,15 +32,16 @@ const server = http.createServer((req,res) => {
         // res.end()
 
        // step 3 write data by asyncronus
-        fs.writeFile('data.docx', 'Hello Node Js!!!', (err) => {
-            if(err){
-                res.write('Data failed to write');
-                res.end()
-            }else{
-                res.write('data written successfully')
-                res.end()
-            }
-        })
+        // fs.writeFile('data.docx', 'Hello Node Js!!!', (err) => {
+        //     if(err){
+        //         res.write('Data failed to write');
+        //         res.end()
+        //     }else{
+        //         res.write('data written successfully')
+        //         res.end()
+        //     }
+        // })
+ 
     }
 
 });
