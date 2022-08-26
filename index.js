@@ -1,5 +1,6 @@
 // local modules
 const {add, coderName, multiply} = require('./other');
+const fs = require('fs');
 
 const result = add(50,55);
 const result2 = multiply(5,25);
@@ -13,7 +14,21 @@ const http = require('http');
 console.log(http);
 
 const server = http.createServer((req,res) => {
-    res.end('Hello Ranjit');
+    // res.end('Hello Ranjit');
+    if(req.url = '/'){
+        // step 1 read data by Syncronus
+        fs.readFile('data.docx', (err, data) => {
+            if(err){
+                res.write('Fail to read data')
+                res.end()
+            }else{
+                res.write(data)
+                res.end()
+            }
+        })
+      
+    }
+
 });
 
 const PORT = 5000;
