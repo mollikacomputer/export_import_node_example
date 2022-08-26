@@ -16,17 +16,20 @@ console.log(http);
 const server = http.createServer((req,res) => {
     // res.end('Hello Ranjit');
     if(req.url = '/'){
-        // step 1 read data by Syncronus
-        fs.readFile('data.docx', (err, data) => {
-            if(err){
-                res.write('Fail to read data')
-                res.end()
-            }else{
-                res.write(data)
-                res.end()
-            }
-        })
-      
+        // step 1 read data by asyncronus
+        // fs.readFile('data.docx', (err, data) => {
+        //     if(err){
+        //         res.write('Fail to read data')
+        //         res.end()
+        //     }else{
+        //         res.write(data)
+        //         res.end()
+        //     }
+        // })
+        // step 2 read data to Sync system
+        const data = fs.readFileSync('data.docx')
+        res.write(data)
+        res.end()
     }
 
 });
